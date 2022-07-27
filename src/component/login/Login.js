@@ -128,7 +128,7 @@ const Login = () => {
   }
   const checkemail = async () => {
 
-    const registeremail = await axios.post("http://192.168.1.4:7000/api/v1/user/check-email", { email })
+    const registeremail = await axios.post("https://skylightrestaurant.herokuapp.com/api/v1/user/check-email", { email })
     console.log(registeremail)
     console.log("otp", registeremail.data.otp)
     if (registeremail.data.status) {
@@ -168,13 +168,13 @@ const Login = () => {
     console.log("given_name : ", given_name)
     console.log("email : ", googleEmail)
 
-    const registeremail = await axios.post("http://192.168.1.4:7000/api/v1/user/check-email", { email: googleEmail })
+    const registeremail = await axios.post("https://skylightrestaurant.herokuapp.com/api/v1/user/check-email", { email: googleEmail })
     console.log("emaillll", registeremail.data.status)
     console.log("sucess")
     if (registeremail.data.status==true) {
       console.log("signin")
 
-      const response = await axios.post('http://192.168.1.4:7000/api/v1/user/loginpage', { email: googleEmail, password: "Google@1324", logintype: "google" })
+      const response = await axios.post('https://skylightrestaurant.herokuapp.com/api/v1/user/loginpage', { email: googleEmail, password: "Google@1324", logintype: "google" })
       console.log("loginpage", response);
       localStorage.setItem("address",response.data.data.address)
       localStorage.setItem("token",response.data.data.jwttoken)
@@ -200,7 +200,7 @@ const Login = () => {
       })
 
       if (text) {
-        const response = await axios.post('http://192.168.1.4:7000/api/v1/user/verify-number', { number: text })
+        const response = await axios.post('https://skylightrestaurant.herokuapp.com/api/v1/user/verify-number', { number: text })
         console.log("phone verify", response);
         setOtpSent(response.data.otp)
         console.log(response.data.otp)
@@ -236,7 +236,7 @@ const Login = () => {
               '',
               'success'
             ).then(async function () {
-              const response = await axios.post('http://192.168.1.4:7000/api/v1/user/signupPage',
+              const response = await axios.post('https://skylightrestaurant.herokuapp.com/api/v1/user/signupPage',
                 { userName: given_name, email: googleEmail,role:"user", password: "Google@1324", mobileNumber: "+91" + text, logintype: "google" })
               console.log("signupPage", response)
               if (response.data.status) {

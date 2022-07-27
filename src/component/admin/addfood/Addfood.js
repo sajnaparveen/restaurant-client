@@ -49,7 +49,7 @@ const Addfood = ()=>{
         // }
         const retData = formDataFun(foodImage,fooditem)
         console.log("foodImage",foodImage)
-       axios.post("http://192.168.1.4:7000/api/v2/food/add",retData,{
+       axios.post("https://skylightrestaurant.herokuapp.com/api/v2/food/add",retData,{
         headers:{"token":token,
        
     }
@@ -65,7 +65,7 @@ const Addfood = ()=>{
        })
      }
      const categorys=()=>{
-        axios.get("http://192.168.1.4:7000/api/v2/food/getfoodcategory")
+        axios.get("https://skylightrestaurant.herokuapp.com/api/v2/food/getfoodcategory")
         .then((res)=>{
          // alert(res.data.message)
          setcategory(res.data.result)

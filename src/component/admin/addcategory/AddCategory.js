@@ -28,7 +28,7 @@ const Addcategorys = ()=>{
     const token=localStorage.getItem('token')
     const postDatas=()=>{
         console.log("fooditem",fooditem)
-       axios.post("http://192.168.1.4:7000/api/v2/food/addfoodcategory",fooditem,{
+       axios.post("https://skylightrestaurant.herokuapp.com/api/v2/food/addfoodcategory",fooditem,{
         headers:{"token":token}
        }
        )
@@ -42,7 +42,7 @@ const Addcategorys = ()=>{
        })
      }
      const categorys=()=>{
-        axios.get("http://192.168.1.4:7000/api/v2/food/getfoodcategory")
+        axios.get("https://skylightrestaurant.herokuapp.com/api/v2/food/getfoodcategory")
         .then((res)=>{
          // alert(res.data.message)
          setcategory(res.data.result)

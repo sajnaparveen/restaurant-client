@@ -60,7 +60,7 @@ const Signup = () => {
       return;
     }
     try {
-      const response = await axios.post('http://192.168.1.4:7000/api/v1/user/signupPage', { userName, email, password, mobileNumber, logintype: "default" })
+      const response = await axios.post('https://skylightrestaurant.herokuapp.com/api/v1/user/signupPage', { userName, email, password, mobileNumber, logintype: "default" })
       console.log(response)
       if(response){
         setUser('');

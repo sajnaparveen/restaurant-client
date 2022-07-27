@@ -20,7 +20,7 @@ const Payment=()=> {
     console.log("value",value)
    const getClientToken=()=>{
         try {
-            axios.get("http://192.168.1.4:7000/tokenGeneration"
+            axios.get("https://skylightrestaurant.herokuapp.com/tokenGeneration"
             ).then(data=>{
                 console.log("client token")
                 console.log(data,"data")
@@ -36,7 +36,7 @@ const Payment=()=> {
     const paymentsuccess= async()=>{
         let email=localStorage.getItem("email")
       
-       await axios.post(`http://192.168.1.4:7000/api/v1/user/order-success`,{email}).then(result=>{
+       await axios.post(`https://skylightrestaurant.herokuapp.com/api/v1/user/order-success`,{email}).then(result=>{
             console.log('addres',result)
           
         })
@@ -53,7 +53,7 @@ const Payment=()=> {
                         paymentMethodNounce: nounceData.nonce
                     }
 
-                    axios.post("http://192.168.1.4:7000/saleTransaction",data
+                    axios.post("https://skylightrestaurant.herokuapp.com/saleTransaction",data
                     ).then(resultData=>{
                         paymentsuccess()
                         console.log(resultData)

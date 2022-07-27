@@ -22,7 +22,7 @@ console.log("length",length)
   console.log("address",state1)
   const getfood = () => {
 
-    axios.get("http://192.168.1.4:7000/api/v2/food/getallitem").then((res) => {
+    axios.get("https://skylightrestaurant.herokuapp.com/api/v2/food/getallitem").then((res) => {
       console.log(res.data.result)
       setfooditem(res.data.result)
     }).catch((error) => {
@@ -30,7 +30,7 @@ console.log("length",length)
     })
   }
   const foodcategorys = () => {
-    axios.get("http://192.168.1.4:7000/api/v2/food/getfoodcategory").then((res) => {
+    axios.get("https://skylightrestaurant.herokuapp.com/api/v2/food/getfoodcategory").then((res) => {
       // console.log("category",res.data.result)
       setfoodcategory(res.data.result)
     }).catch((error) => {
@@ -40,7 +40,7 @@ console.log("length",length)
   const searchproduct = (key) => {
     console.log(key)
     if(key){
-      axios.get('http://192.168.1.4:7000/api/v2/food/searchproduct/' + key, {
+      axios.get('https://skylightrestaurant.herokuapp.com/api/v2/food/searchproduct/' + key, {
      
       })
         .then((res) => {
@@ -57,7 +57,7 @@ console.log("length",length)
   const getProducts = (curElem) => {
     console.log(curElem)
 
-    axios.get("http://192.168.1.4:7000/api/v2/food/get-categorybasedfooditem", {
+    axios.get("https://skylightrestaurant.herokuapp.com/api/v2/food/get-categorybasedfooditem", {
       params: { category_id: curElem.uuid }
     })
       .then((res) => {
@@ -90,7 +90,7 @@ console.log("length",length)
     const token = localStorage.getItem('token')
     console.log(data)
 
-    await axios.get(`http://192.168.1.4:7000/api/v2/food/getIndifooddetails?food_uuid=${data}`, {
+    await axios.get(`https://skylightrestaurant.herokuapp.com/api/v2/food/getIndifooddetails?food_uuid=${data}`, {
       headers: { "token": token }
     })
       .then((res) => {
@@ -133,7 +133,7 @@ console.log("length",length)
     console.log(bookingDate)
     console.log(bookingTime)
 
-    await axios.post('http://192.168.1.4:7000/api/v2/food/book-table', {
+    await axios.post('https://skylightrestaurant.herokuapp.com/api/v2/food/book-table', {
       bookingDate, tableData, bookingTime
     })
       .then((res) => {
@@ -158,7 +158,7 @@ console.log("length",length)
     
     console.log(query)
 
-    await axios.post(`http://192.168.1.4:7000/api/v1/user/customerQuery`, {message:query})
+    await axios.post(`https://skylightrestaurant.herokuapp.com/api/v1/user/customerQuery`, {message:query})
       .then((res) => {
         
         console.log("cutomerquery", res.data)
